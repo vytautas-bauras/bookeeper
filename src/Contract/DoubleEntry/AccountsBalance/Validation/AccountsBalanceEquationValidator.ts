@@ -1,4 +1,4 @@
-interface AccountingEquationValidator extends Validator {
+interface AccountsBalanceEquationValidator extends Validator {
     /**
      * Checks if the fundamental accounting equation holds true for the given AccountsBalance
      * 
