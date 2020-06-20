@@ -1,0 +1,3 @@
+interface TargetInvalidError extends Error {
+
+}

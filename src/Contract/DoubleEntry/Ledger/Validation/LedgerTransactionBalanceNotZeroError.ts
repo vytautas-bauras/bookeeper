@@ -1,0 +1,3 @@
+interface LedgerTransactionBalanceNotZeroError extends LedgerTransactionInvalidError {
+
+}

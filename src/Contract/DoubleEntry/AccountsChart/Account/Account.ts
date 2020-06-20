@@ -1,0 +1,1 @@
+type ChartAccount = AssetsAccount|EquityAccount|ExpensesAccount|LiabilitiesAccount|RevenuesAccount;

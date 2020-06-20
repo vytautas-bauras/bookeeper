@@ -1,0 +1,3 @@
+interface Ledger {
+    getLedgerTransactionsOrderedByDateAsc(): LedgerTransaction[];
+}
