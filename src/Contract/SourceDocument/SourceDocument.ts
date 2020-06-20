@@ -1,0 +1,3 @@
+interface SourceDocument {
+    getLedgerTransactions(): LedgerTransaction[];
+}
