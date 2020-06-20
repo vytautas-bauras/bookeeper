@@ -1,4 +1,4 @@
 interface Ledger {
-    getAccountsChart(): AccountsChart;
+    getLedgerAccountsChart(): AccountsChart;
     getLedgerTransactionsOrderedByDateAsc(): LedgerTransaction[];
 }
