@@ -5,7 +5,7 @@ Account Mapping abstractions define how two different charts can be mapped to ea
 
 ## Usage cases
 
-Financial Reports, i.e.:
+Financial Reports, for example:
 
-- Balance Sheet
-- Income Statement
+- a balance sheet
+- an income statement

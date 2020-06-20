@@ -5,7 +5,7 @@ interface MappedAccount {
     getMappedChartAccount(): ChartAccount;
 
     /**
-     * The Ledger AccountsChart accounts the entries of which are to be treated as assigned to the mapped account
+     * The accounts of the Ledger AccountsChart whose entries are to be treated as assigned to the mapped account
      */
     getCorrespondingChartAccounts(): ChartAccount[]; 
 }
