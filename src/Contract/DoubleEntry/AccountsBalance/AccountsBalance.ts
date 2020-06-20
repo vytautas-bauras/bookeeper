@@ -1,7 +1,4 @@
-interface AccountsBalance extends Validatable {
-    getAccountsChart(): AccountsChart;
-    getLedger(): Ledger;
-    
+interface AccountsBalance extends Validatable {    
     getAssets(): AssetsAccountBalance;
     getLiabilities(): LiabilitiesAccountBalance;
     getEquity(): EquityAccountBalance;
