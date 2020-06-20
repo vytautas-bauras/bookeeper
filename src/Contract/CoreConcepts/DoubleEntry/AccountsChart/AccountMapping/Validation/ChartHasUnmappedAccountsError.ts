@@ -1,0 +1,3 @@
+interface ChartHasUnmappedAccounts extends TargetInvalidError {
+    
+}
