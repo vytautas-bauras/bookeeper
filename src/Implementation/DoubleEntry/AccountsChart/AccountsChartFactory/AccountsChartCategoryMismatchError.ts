@@ -1,3 +1,0 @@
-class AccountsChartCategoryMismatchError extends Error {
-
-}

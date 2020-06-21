@@ -1,3 +1,0 @@
-class SerializableLiabilitiesAccountAdapter extends SerializableAccountAdapter<LiabilitiesAccount> implements LiabilitiesAccount {
-
-}

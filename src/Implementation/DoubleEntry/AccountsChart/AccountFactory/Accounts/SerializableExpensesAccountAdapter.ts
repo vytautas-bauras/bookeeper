@@ -1,3 +1,0 @@
-class SerializableExpensesAccountAdapter extends SerializableAccountAdapter<ExpensesAccount> implements ExpensesAccount {
-
-}

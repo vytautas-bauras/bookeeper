@@ -1,3 +1,0 @@
-class AccountTypeMismatchError extends Error {
-
-}

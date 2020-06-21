@@ -1,5 +1,4 @@
-interface SerializableAccount<T extends AccountType> {
-    accountType: T;
+interface SerializableAccount {
     accountName: string;
-    childAccounts: SerializableAccount<T>[]; 
+    childAccounts: SerializableAccount[]; 
 }
