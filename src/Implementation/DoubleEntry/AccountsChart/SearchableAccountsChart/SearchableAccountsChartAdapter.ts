@@ -2,9 +2,10 @@ import SearchableAccountsChart from "Contract/SystemComponents/DoubleEntry/Accou
 import { ChartAccount } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/ChartAccount";
 import AccountsChart from "Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountsChart";
 import AccountNotFoundError from "./AccountNotFoundError";
+import { ChartAccountList } from "Contract/SystemComponents/DoubleEntry/AccountsChart/ChartAccountListProvider";
 
 export default class SearchableAccountsChartAdapter implements SearchableAccountsChart {
-    accountsMap: {[name: string]: ChartAccount} = {};
+    private accountsMap: ChartAccountList = {};
 
     constructor(private accountsChart: AccountsChart) {
         this.addAccountsRecursive(accountsChart.getAssets());
