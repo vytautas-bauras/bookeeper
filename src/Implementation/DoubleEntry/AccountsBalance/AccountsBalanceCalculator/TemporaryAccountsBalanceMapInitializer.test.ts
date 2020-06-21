@@ -57,7 +57,7 @@ const accountList: ChartAccountList = {
 };
 
 function validateTemporaryAccountBalance(balance: TemporaryLedgerAccountBalance<any>, expectedAccount: ChartAccount) {
-    tap.equals(balance.account, assetsAccount);
+    tap.equals(balance.account, expectedAccount);
     tap.equals(balance.balance, 0);
     tap.equals(balance.credit, 0);
     tap.equals(balance.debit, 0);
