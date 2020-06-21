@@ -1,8 +1,8 @@
 import tap from 'tap';
-import ChartAccountListProvider, { ChartAccountList } from 'Contract/SystemComponents/DoubleEntry/AccountsChart/ChartAccountListProvider';
 import TemporaryLedgerAccountBalance from './AccountBalance/TemporaryLedgerAccountBalance';
-import { ChartAccount } from 'Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/ChartAccount';
 import TemporaryAccountsBalanceMapInitializer from './TemporaryAccountsBalanceMapInitializer';
+import ChartAccountListProvider, { ChartAccountList } from 'Contract/SystemComponents/DoubleEntry/AccountsChart/ChartAccountListProvider';
+import { ChartAccount } from 'Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/ChartAccount';
 
 const childAccounts = [
     {
