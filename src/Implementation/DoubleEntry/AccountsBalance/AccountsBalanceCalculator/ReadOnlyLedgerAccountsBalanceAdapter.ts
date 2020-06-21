@@ -1,4 +1,4 @@
-class ReadOnlyLedgerAccountsBalanceAdapter implements AccountsBalance {
+export default classReadOnlyLedgerAccountsBalanceAdapter implements AccountsBalance {
     private assets: AccountBalance<AssetsAccount>;
     private equity: AccountBalance<EquityAccount>;
     private revenues: AccountBalance<RevenuesAccount>;

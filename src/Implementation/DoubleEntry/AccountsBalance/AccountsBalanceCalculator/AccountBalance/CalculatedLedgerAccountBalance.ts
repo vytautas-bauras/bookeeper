@@ -1,4 +1,4 @@
-class CalculatedLedgerAccountBalance<T extends ChartAccount> implements AccountBalance<T> {
+export default classCalculatedLedgerAccountBalance<T extends ChartAccount> implements AccountBalance<T> {
     constructor(
         protected temporaryBalance: TemporaryLedgerAccountBalance<T>, 
         protected childAccountBalances: CalculatedLedgerAccountBalance<T>[]

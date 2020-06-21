@@ -1,5 +1,7 @@
-type ChartAccountList = {[accountCode: string]: ChartAccount};
+import { ChartAccount } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/ChartAccount";
 
-interface ChartAccountListProvider {
+export type ChartAccountList = {[accountCode: string]: ChartAccount};
+
+export default interface ChartAccountListProvider {
     getAccountList(): ChartAccountList;
 }

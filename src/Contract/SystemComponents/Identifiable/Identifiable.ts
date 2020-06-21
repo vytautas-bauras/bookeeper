@@ -1,3 +1,3 @@
-interface Identifiable {
+export default interface Identifiable {
     getIdentifier(): string;
 }

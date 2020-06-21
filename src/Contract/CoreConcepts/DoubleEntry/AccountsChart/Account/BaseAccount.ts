@@ -1,4 +1,4 @@
-interface BaseAccount {
+export default interface BaseAccount {
     getAccountCode(): string;
     getAccountTitle(): string;
     getParentAccount(): BaseAccount|undefined;

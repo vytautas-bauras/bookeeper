@@ -1,3 +1,3 @@
-interface Validatable {
+export default interface Validatable {
     
 }

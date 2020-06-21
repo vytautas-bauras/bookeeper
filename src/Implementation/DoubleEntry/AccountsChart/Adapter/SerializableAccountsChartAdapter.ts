@@ -1,4 +1,4 @@
-class SerializableAccountsChartAdapter implements AccountsChart {
+export default classSerializableAccountsChartAdapter implements AccountsChart {
     constructor(protected serializedAccountsChart: SerializableAccountsChart) {
 
     }

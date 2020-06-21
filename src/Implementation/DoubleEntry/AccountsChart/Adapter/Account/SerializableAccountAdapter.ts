@@ -1,4 +1,4 @@
-abstract class SerializableAccountAdapter<T extends ChartAccount> implements BaseAccount {
+abstract export default classSerializableAccountAdapter<T extends ChartAccount> implements BaseAccount {
     constructor(
         protected serializedAccount: SerializableAccount,
         protected parentAccount?: T

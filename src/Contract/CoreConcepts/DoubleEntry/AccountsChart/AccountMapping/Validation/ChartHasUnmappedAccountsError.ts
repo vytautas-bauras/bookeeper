@@ -1,3 +1,3 @@
-interface ChartHasUnmappedAccounts extends TargetInvalidError {
+export default interface ChartHasUnmappedAccounts extends TargetInvalidError {
     
 }

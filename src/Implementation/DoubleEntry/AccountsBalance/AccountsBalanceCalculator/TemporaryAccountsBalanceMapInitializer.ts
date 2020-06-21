@@ -1,6 +1,6 @@
-type TemporaryAccountBalanceMap = {[accountCode: string]: TemporaryLedgerAccountBalance<any>};
+export type TemporaryAccountBalanceMap = {[accountCode: string]: TemporaryLedgerAccountBalance<any>};
 
-class TemporaryAccountsBalanceMapInitializer {
+export default classTemporaryAccountsBalanceMapInitializer {
     constructor(protected accountListProvider: ChartAccountListProvider) {
 
     }

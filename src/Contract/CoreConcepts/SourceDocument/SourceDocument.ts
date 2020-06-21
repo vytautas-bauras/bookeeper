@@ -1,3 +1,3 @@
-interface SourceDocument {
+export default interface SourceDocument {
     getLedgerTransactions(): LedgerTransaction[];
 }

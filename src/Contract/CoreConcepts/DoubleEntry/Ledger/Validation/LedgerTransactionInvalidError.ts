@@ -1,3 +1,3 @@
-interface LedgerTransactionInvalidError extends TargetInvalidError {
+export default interface LedgerTransactionInvalidError extends TargetInvalidError {
     
 }

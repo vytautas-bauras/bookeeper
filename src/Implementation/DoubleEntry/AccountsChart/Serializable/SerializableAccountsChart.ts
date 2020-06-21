@@ -1,4 +1,4 @@
-interface SerializableAccountsChart {
+export default interface SerializableAccountsChart {
     assets: SerializableAccount;
     equity: SerializableAccount;
     liabilities: SerializableAccount;

@@ -1,4 +1,4 @@
-class AccountsBalanceLedgerTransactionProcessor {
+export default classAccountsBalanceLedgerTransactionProcessor {
     constructor(
         private temporaryBalanceMap: TemporaryAccountBalanceMap
     ) {

@@ -1,4 +1,4 @@
-interface LedgerTransactionValidator extends Validatable {
+export default interface LedgerTransactionValidator extends Validatable {
     /**
      * 
      * @param target 

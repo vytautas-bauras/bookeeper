@@ -1,3 +1,3 @@
-class AccountNotInChartError extends Error {
+export default classAccountNotInChartError extends Error {
     
 }

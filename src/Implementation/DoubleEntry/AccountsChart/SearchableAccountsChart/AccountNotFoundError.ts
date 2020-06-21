@@ -1,3 +1,3 @@
-class AccountNotFoundError extends Error {
+export default classAccountNotFoundError extends Error {
 
 }

@@ -1,4 +1,4 @@
-interface Validator {
+export default interface Validator {
     /**
      * 
      * @param target 

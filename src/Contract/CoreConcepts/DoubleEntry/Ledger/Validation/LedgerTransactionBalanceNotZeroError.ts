@@ -1,3 +1,3 @@
-interface LedgerTransactionBalanceNotZeroError extends LedgerTransactionInvalidError {
+export default interface LedgerTransactionBalanceNotZeroError extends LedgerTransactionInvalidError {
 
 }

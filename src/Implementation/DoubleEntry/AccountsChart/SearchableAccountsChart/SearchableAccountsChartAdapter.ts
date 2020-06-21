@@ -1,4 +1,4 @@
-class SearchableAccountsChartAdapter implements SearchableAccountsChart {
+export default classSearchableAccountsChartAdapter implements SearchableAccountsChart {
     accountsMap: {[name: string]: ChartAccount} = {};
 
     constructor(private accountsChart: AccountsChart) {

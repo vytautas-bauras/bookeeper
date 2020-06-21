@@ -1,3 +1,3 @@
-interface TargetInvalidError extends Error {
+export default interface TargetInvalidError extends Error {
 
 }

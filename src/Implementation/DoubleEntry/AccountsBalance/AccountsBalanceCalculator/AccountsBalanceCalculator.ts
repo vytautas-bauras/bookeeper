@@ -1,4 +1,4 @@
-class AccountsBalanceCalculator {
+export default classAccountsBalanceCalculator {
     private scratchFactory: TemporaryAccountsBalanceMapInitializer;
 
     constructor(
