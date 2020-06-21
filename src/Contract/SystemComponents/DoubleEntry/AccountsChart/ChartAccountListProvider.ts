@@ -1,3 +1,5 @@
+type ChartAccountList = {[accountCode: string]: ChartAccount};
+
 interface ChartAccountListProvider {
-    getAccountList(): {[accountCode: string]: ChartAccount};
+    getAccountList(): ChartAccountList;
 }
