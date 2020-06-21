@@ -6,8 +6,8 @@ abstract class SerializableAccountAdapter<T extends ChartAccount> {
 
     }
 
-    getAccountName() {
-        return this.serializedAccount.accountName;
+    getAccountCode() {
+        return this.serializedAccount.accountCode;
     }
 
     getChildAccounts(): T[] {

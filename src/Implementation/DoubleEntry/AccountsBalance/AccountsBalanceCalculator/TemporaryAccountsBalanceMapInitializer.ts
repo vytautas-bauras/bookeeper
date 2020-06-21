@@ -1,4 +1,4 @@
-type TemporaryAccountBalanceMap = {[accountName: string]: TemporaryLedgerAccountBalance<any>};
+type TemporaryAccountBalanceMap = {[accountCode: string]: TemporaryLedgerAccountBalance<any>};
 
 class TemporaryAccountsBalanceMapInitializer {
     constructor(protected accountListProvider: ChartAccountListProvider) {
@@ -10,9 +10,9 @@ class TemporaryAccountsBalanceMapInitializer {
 
         const accountsBalance: TemporaryAccountBalanceMap = {};
 
-        Object.keys(accountList).forEach(accountName => {
-            accountsBalance[accountName] = {
-                account: accountList[accountName],
+        Object.keys(accountList).forEach(accountCode => {
+            accountsBalance[accountCode] = {
+                account: accountList[accountCode],
                 debit: 0,
                 credit: 0,
                 balance: 0

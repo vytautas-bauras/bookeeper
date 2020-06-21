@@ -1,3 +1,3 @@
 interface ChartAccountListProvider {
-    getAccountList(): {[accountName: string]: ChartAccount};
+    getAccountList(): {[accountCode: string]: ChartAccount};
 }

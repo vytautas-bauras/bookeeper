@@ -1,7 +1,7 @@
 import tap from 'tap';
 
 const accountsReceivableAccount = {
-    getAccountName() {
+    getAccountCode() {
         ""
     }
 }
@@ -10,7 +10,7 @@ const initializer = new TemporaryAccountsBalanceMapInitializer({
     getAccountList() {
         return {
             "100 - Assets": {
-                getAccountName() {
+                getAccountCode() {
                     return "Assets"
                 },
                 getChildAccounts() {

@@ -22,7 +22,7 @@ class ReadOnlyLedgerAccountsBalanceAdapter implements AccountsBalance {
      * @param account 
      */
     initLedgerAccountBalanceRecursive(account: ChartAccount): CalculatedLedgerAccountBalance<any> {
-        const balance = this.accountBalanceMap[account.getAccountName()];
+        const balance = this.accountBalanceMap[account.getAccountCode()];
 
         return new CalculatedLedgerAccountBalance(
             balance, 

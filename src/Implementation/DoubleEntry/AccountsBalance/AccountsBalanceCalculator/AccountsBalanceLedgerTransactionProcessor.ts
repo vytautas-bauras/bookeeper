@@ -17,7 +17,7 @@ class AccountsBalanceLedgerTransactionProcessor {
 
             for(let entryIt = 0; entryIt < entries.length; entryIt++) {
                 const entry = entries[entryIt];
-                const accountBalance = this.temporaryBalanceMap[entry.getLedgerEntryAccount().getAccountName()];
+                const accountBalance = this.temporaryBalanceMap[entry.getLedgerEntryAccount().getAccountCode()];
                 if(!accountBalance) throw new AccountNotInChartError();
 
                 const amount = entry.getLedgerEntryAmount();

@@ -1,4 +1,4 @@
 interface SerializableAccount {
-    accountName: string;
+    accountCode: string;
     childAccounts: SerializableAccount[]; 
 }

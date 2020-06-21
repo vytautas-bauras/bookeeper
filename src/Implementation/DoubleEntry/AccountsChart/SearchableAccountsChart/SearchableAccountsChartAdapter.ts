@@ -10,7 +10,7 @@ class SearchableAccountsChartAdapter implements SearchableAccountsChart {
     }
 
     private addAccountsRecursive(account: ChartAccount) {
-        this.accountsMap[account.getAccountName()] = account;
+        this.accountsMap[account.getAccountCode()] = account;
         account.getChildAccounts().forEach(child => this.addAccountsRecursive(child));
     }
 
@@ -34,8 +34,8 @@ class SearchableAccountsChartAdapter implements SearchableAccountsChart {
         return this.accountsChart.getRevenues();
     }
  
-    getAccountByName(accountName: string) {
-        const account = this.accountsMap[accountName];
+    getAccountByName(accountCode: string) {
+        const account = this.accountsMap[accountCode];
         if(!account) {
             throw new AccountNotFoundError();
         }

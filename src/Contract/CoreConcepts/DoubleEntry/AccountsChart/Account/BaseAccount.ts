@@ -1,5 +1,5 @@
 interface BaseAccount {
-    getAccountName(): string;
+    getAccountCode(): string;
     getParentAccount(): BaseAccount|undefined;
     getChildAccounts(): BaseAccount[];
 }
