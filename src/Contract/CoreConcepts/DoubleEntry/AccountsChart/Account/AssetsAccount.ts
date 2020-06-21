@@ -1,4 +1,4 @@
 interface AssetsAccount extends BaseAccount {
-    getParentAccount(): AssetsAccount;
+    getParentAccount(): AssetsAccount|undefined;
     getChildAccounts(): AssetsAccount[];
 }

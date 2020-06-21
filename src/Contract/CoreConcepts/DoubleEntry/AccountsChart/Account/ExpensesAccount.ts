@@ -1,4 +1,4 @@
 interface ExpensesAccount extends BaseAccount {
-    getParentAccount(): ExpensesAccount;
+    getParentAccount(): ExpensesAccount|undefined;
     getChildAccounts(): ExpensesAccount[];
 }

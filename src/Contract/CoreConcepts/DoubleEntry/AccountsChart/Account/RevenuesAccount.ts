@@ -1,4 +1,4 @@
 interface RevenuesAccount extends BaseAccount {
-    getParentAccount(): RevenuesAccount;
+    getParentAccount(): RevenuesAccount|undefined;
     getChildAccounts(): RevenuesAccount[];
 }

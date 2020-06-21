@@ -1,0 +1,3 @@
+class AccountTypeDoesNotExistError extends Error {
+    
+}

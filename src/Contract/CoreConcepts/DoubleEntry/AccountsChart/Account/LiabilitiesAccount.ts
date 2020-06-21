@@ -1,4 +1,4 @@
 interface LiabilitiesAccount extends BaseAccount {
-    getParentAccount(): LiabilitiesAccount;
+    getParentAccount(): LiabilitiesAccount|undefined;
     getChildAccounts(): LiabilitiesAccount[];
 }

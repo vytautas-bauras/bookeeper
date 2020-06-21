@@ -1,4 +1,4 @@
 interface EquityAccount extends BaseAccount {
-    getParentAccount(): EquityAccount;
+    getParentAccount(): EquityAccount|undefined;
     getChildAccounts(): EquityAccount[];
 }
