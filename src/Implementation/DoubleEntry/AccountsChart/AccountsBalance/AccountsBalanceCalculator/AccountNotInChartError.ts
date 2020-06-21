@@ -1,0 +1,3 @@
+class AccountNotInChartError extends Error {
+    
+}
