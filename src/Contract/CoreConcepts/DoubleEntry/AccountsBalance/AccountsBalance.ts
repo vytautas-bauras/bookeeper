@@ -1,7 +1,7 @@
 interface AccountsBalance extends Validatable {    
-    getAssets(): AssetsAccountBalance;
-    getLiabilities(): LiabilitiesAccountBalance;
-    getEquity(): EquityAccountBalance;
-    getRevenues(): RevenuesAccountBalance;
-    getExpenses(): ExpensesAccountBalance;
+    getAssets(): AccountBalance<AssetsAccount>;
+    getLiabilities(): AccountBalance<LiabilitiesAccount>;
+    getEquity(): AccountBalance<EquityAccount>;
+    getRevenues(): AccountBalance<RevenuesAccount>;
+    getExpenses(): AccountBalance<ExpensesAccount>;
 }
