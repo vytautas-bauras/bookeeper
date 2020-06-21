@@ -1,4 +1,4 @@
-abstract class SerializableAccountAdapter<T extends ChartAccount> {
+abstract class SerializableAccountAdapter<T extends ChartAccount> implements BaseAccount {
     constructor(
         protected serializedAccount: SerializableAccount,
         protected parentAccount?: T
@@ -8,6 +8,10 @@ abstract class SerializableAccountAdapter<T extends ChartAccount> {
 
     getAccountCode() {
         return this.serializedAccount.accountCode;
+    }
+
+    getAccountTitle() {
+        return this.serializedAccount.accountTitle;
     }
 
     getChildAccounts(): T[] {
