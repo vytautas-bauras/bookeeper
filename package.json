@@ -1,0 +1,24 @@
+{
+  "name": "bookeeper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vytautas-bauras/bookeeper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vytautas-bauras/bookeeper/issues"
+  },
+  "homepage": "https://github.com/vytautas-bauras/bookeeper#readme",
+  "devDependencies": {
+    "@types/tap": "^14.10.0",
+    "tap": "^14.10.7",
+    "typescript": "^3.9.5"
+  }
+}
