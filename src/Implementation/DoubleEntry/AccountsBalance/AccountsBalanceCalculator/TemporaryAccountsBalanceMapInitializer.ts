@@ -1,6 +1,9 @@
+import ChartAccountListProvider from "Contract/SystemComponents/DoubleEntry/AccountsChart/ChartAccountListProvider";
+import TemporaryLedgerAccountBalance from "./AccountBalance/TemporaryLedgerAccountBalance";
+
 export type TemporaryAccountBalanceMap = {[accountCode: string]: TemporaryLedgerAccountBalance<any>};
 
-export default classTemporaryAccountsBalanceMapInitializer {
+export default class TemporaryAccountsBalanceMapInitializer {
     constructor(protected accountListProvider: ChartAccountListProvider) {
 
     }

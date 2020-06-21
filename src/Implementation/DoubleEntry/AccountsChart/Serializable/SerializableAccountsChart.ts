@@ -1,3 +1,5 @@
+import SerializableAccount from "./SerializableAccount";
+
 export default interface SerializableAccountsChart {
     assets: SerializableAccount;
     equity: SerializableAccount;

@@ -1,3 +1,5 @@
+import Validatable from "./Validatable";
+
 export default interface Validator {
     /**
      * 

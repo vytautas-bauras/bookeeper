@@ -1,4 +1,8 @@
-export default classCalculatedLedgerAccountBalance<T extends ChartAccount> implements AccountBalance<T> {
+import TemporaryLedgerAccountBalance from "./TemporaryLedgerAccountBalance";
+import { ChartAccount } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/ChartAccount";
+import AccountBalance from "Contract/CoreConcepts/DoubleEntry/AccountsBalance/AccountBalance";
+
+export default class CalculatedLedgerAccountBalance<T extends ChartAccount> implements AccountBalance<T> {
     constructor(
         protected temporaryBalance: TemporaryLedgerAccountBalance<T>, 
         protected childAccountBalances: CalculatedLedgerAccountBalance<T>[]

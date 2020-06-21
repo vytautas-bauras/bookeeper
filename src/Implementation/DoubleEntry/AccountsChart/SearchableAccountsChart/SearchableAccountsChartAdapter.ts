@@ -1,4 +1,9 @@
-export default classSearchableAccountsChartAdapter implements SearchableAccountsChart {
+import SearchableAccountsChart from "Contract/SystemComponents/DoubleEntry/AccountsChart/SearchableAccountsChart";
+import { ChartAccount } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/ChartAccount";
+import AccountsChart from "Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountsChart";
+import AccountNotFoundError from "./AccountNotFoundError";
+
+export default class SearchableAccountsChartAdapter implements SearchableAccountsChart {
     accountsMap: {[name: string]: ChartAccount} = {};
 
     constructor(private accountsChart: AccountsChart) {

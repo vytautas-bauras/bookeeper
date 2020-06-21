@@ -1,4 +1,8 @@
-abstract export default classSerializableAccountAdapter<T extends ChartAccount> implements BaseAccount {
+import SerializableAccount from "../../Serializable/SerializableAccount";
+import { ChartAccount } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/ChartAccount";
+import BaseAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/BaseAccount";
+
+export default abstract class SerializableAccountAdapter<T extends ChartAccount> implements BaseAccount {
     constructor(
         protected serializedAccount: SerializableAccount,
         protected parentAccount?: T

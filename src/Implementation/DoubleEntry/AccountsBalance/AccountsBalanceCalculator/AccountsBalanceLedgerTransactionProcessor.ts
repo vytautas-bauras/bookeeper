@@ -1,4 +1,8 @@
-export default classAccountsBalanceLedgerTransactionProcessor {
+import { TemporaryAccountBalanceMap } from "./TemporaryAccountsBalanceMapInitializer";
+import LedgerTransaction from "Contract/CoreConcepts/DoubleEntry/Ledger/LedgerTransaction";
+import AccountNotInChartError from "./AccountNotInChartError";
+
+export default class AccountsBalanceLedgerTransactionProcessor {
     constructor(
         private temporaryBalanceMap: TemporaryAccountBalanceMap
     ) {
