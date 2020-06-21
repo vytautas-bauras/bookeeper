@@ -1,4 +1,4 @@
 interface LedgerEntry {
     getLedgerEntryAccount(): ChartAccount;
-    getLedgerEntryAmount(): Number;
+    getLedgerEntryAmount(): number;
 }
