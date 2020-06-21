@@ -1,4 +1,3 @@
-interface SearchableAccountsChart extends AccountsChart {
-    getAccountList(): {[accountName: string]: ChartAccount};
+interface SearchableAccountsChart extends AccountsChart, ChartAccountListProvider {
     getAccountByName(accountName: string): ChartAccount;
 }

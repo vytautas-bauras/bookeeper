@@ -1,12 +1,12 @@
 type TemporaryAccountBalanceMap = {[accountName: string]: TemporaryLedgerAccountBalance<any>};
 
 class TemporaryAccountsBalanceMapInitializer {
-    constructor(protected searchableAccountsChart: SearchableAccountsChart) {
+    constructor(protected accountListProvider: ChartAccountListProvider) {
 
     }
 
     initializeTemporaryAccountsBalanceMap(): TemporaryAccountBalanceMap {
-        const accountList = this.searchableAccountsChart.getAccountList();
+        const accountList = this.accountListProvider.getAccountList();
 
         const accountsBalance: TemporaryAccountBalanceMap = {};
 
