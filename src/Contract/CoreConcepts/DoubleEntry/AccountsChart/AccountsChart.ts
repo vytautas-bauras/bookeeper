@@ -1,13 +1,6 @@
-import AssetsAccount from "./Account/AssetsAccount";
-import LiabilitiesAccount from "./Account/LiabilitiesAccount";
-import EquityAccount from "./Account/EquityAccount";
-import RevenuesAccount from "./Account/RevenuesAccount";
-import ExpensesAccount from "./Account/ExpensesAccount";
+import { ChartAccount } from "./Account/ChartAccount";
+import { ChartAccountType } from "./ChartAccountType";
 
 export default interface AccountsChart {
-    getAssets(): AssetsAccount;
-    getLiabilities(): LiabilitiesAccount;
-    getEquity(): EquityAccount;
-    getRevenues(): RevenuesAccount;
-    getExpenses(): ExpensesAccount;
+    getRootAccountByType(type: ChartAccountType): ChartAccount;
 }
