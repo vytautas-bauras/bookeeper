@@ -1,18 +1,19 @@
 import SearchableAccountsChart from "Contract/SystemComponents/DoubleEntry/AccountsChart/SearchableAccountsChart";
-import { ChartAccount } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/ChartAccount";
 import AccountsChart from "Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountsChart";
 import AccountNotFoundError from "./AccountNotFoundError";
 import { ChartAccountList } from "Contract/SystemComponents/DoubleEntry/AccountsChart/ChartAccountListProvider";
+import { ChartAccountType } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
+import ChartAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccount";
 
 export default class SearchableAccountsChartAdapter implements SearchableAccountsChart {
     private accountsMap: ChartAccountList = {};
 
     constructor(private accountsChart: AccountsChart) {
-        this.addAccountsRecursive(accountsChart.getAssets());
-        this.addAccountsRecursive(accountsChart.getEquity());
-        this.addAccountsRecursive(accountsChart.getExpenses());
-        this.addAccountsRecursive(accountsChart.getLiabilities());
-        this.addAccountsRecursive(accountsChart.getRevenues());
+        this.addAccountsRecursive(accountsChart.getRootAccountByType(ChartAccountType.Assets));
+        this.addAccountsRecursive(accountsChart.getRootAccountByType(ChartAccountType.Liabilities));
+        this.addAccountsRecursive(accountsChart.getRootAccountByType(ChartAccountType.Equity));
+        this.addAccountsRecursive(accountsChart.getRootAccountByType(ChartAccountType.Revenues));
+        this.addAccountsRecursive(accountsChart.getRootAccountByType(ChartAccountType.Expenses));
     }
 
     private addAccountsRecursive(account: ChartAccount) {
@@ -20,24 +21,8 @@ export default class SearchableAccountsChartAdapter implements SearchableAccount
         account.getChildAccounts().forEach(child => this.addAccountsRecursive(child));
     }
 
-    getAssets() {
-        return this.accountsChart.getAssets();
-    }
-
-    getEquity() {
-        return this.accountsChart.getEquity();
-    }
-
-    getLiabilities() {
-        return this.accountsChart.getLiabilities();
-    }
-
-    getExpenses() {
-        return this.accountsChart.getExpenses();
-    }
-
-    getRevenues() {
-        return this.accountsChart.getRevenues();
+    getRootAccountByType(accountType: ChartAccountType) {
+        return this.accountsChart.getRootAccountByType(accountType);
     }
  
     getAccountByName(accountCode: string) {
