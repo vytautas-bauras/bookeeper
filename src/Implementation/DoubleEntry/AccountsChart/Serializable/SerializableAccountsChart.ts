@@ -1,9 +1,4 @@
 import SerializableAccount from "./SerializableAccount";
+import { ChartAccountType } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
 
-export default interface SerializableAccountsChart {
-    assets: SerializableAccount;
-    equity: SerializableAccount;
-    liabilities: SerializableAccount;
-    revenues: SerializableAccount;
-    expenses: SerializableAccount;
-}
+export type SerializableAccountsChart = {[key in ChartAccountType]: SerializableAccount};
