@@ -1,6 +1,8 @@
 import BaseInMemoryAccount from "./BaseInMemoryAccount";
-import RevenuesAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/RevenuesAccount";
+import { ChartAccountType } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
 
-export default class InMemoryRevenuesAccount extends BaseInMemoryAccount<RevenuesAccount> implements RevenuesAccount {
-
+export default class InMemoryRevenuesAccount extends BaseInMemoryAccount {
+    getAccountType() {
+        return ChartAccountType.Revenues;
+    }
 }

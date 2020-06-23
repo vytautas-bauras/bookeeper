@@ -1,38 +1,34 @@
-import AssetsAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/AssetsAccount";
-import LiabilitiesAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/LiabilitiesAccount";
-import EquityAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/EquityAccount";
-import RevenuesAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/RevenuesAccount";
-import ExpensesAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/ExpensesAccount";
 import AccountsChart from "Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountsChart";
+import InMemoryLiabilitiesAccount from "./InMemoryLiabilitiesAccount";
+import InMemoryEquityAccount from "./InMemoryEquityAccount";
+import InMemoryRevenuesAccount from "./InMemoryRevenuesAccount";
+import InMemoryExpensesAccount from "./InMemoryExpensesAccount";
+import InMemoryAssetsAccount from "./InMemoryAssetsAccount";
+import { ChartAccountType } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
+import BaseInMemoryAccount from "./BaseInMemoryAccount";
 
 export default class InMemoryAccountsChart implements AccountsChart {
     constructor(
-        public readonly assets: AssetsAccount,
-        public readonly liabilities: LiabilitiesAccount,
-        public readonly equity: EquityAccount,
-        public readonly revenues: RevenuesAccount,
-        public readonly expenses: ExpensesAccount
+        public readonly assets: InMemoryAssetsAccount,
+        public readonly liabilities: InMemoryLiabilitiesAccount,
+        public readonly equity: InMemoryEquityAccount,
+        public readonly revenues: InMemoryRevenuesAccount,
+        public readonly expenses: InMemoryExpensesAccount
     ) {
 
     }
 
-    getAssets() {
-        return this.assets;
-    }
-
-    getEquity() {
-        return this.equity;
-    }
-
-    getLiabilities() {
-        return this.liabilities;
-    }
-
-    getRevenues() {
-        return this.revenues;
-    }
-
-    getExpenses() {
-        return this.expenses;
+    getRootAccountByType(accountType: ChartAccountType) {
+        if(accountType === ChartAccountType.Assets) {
+            return this.assets;
+        } else if(accountType === ChartAccountType.Equity) {
+            return this.equity;
+        } else if(accountType === ChartAccountType.Liabilities) {
+            return this.liabilities;
+        } else if(accountType === ChartAccountType.Revenues) {
+            return this.revenues;
+        } else if(accountType === ChartAccountType.Expenses) {
+            return this.expenses;
+        }
     }
 }

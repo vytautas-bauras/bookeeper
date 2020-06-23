@@ -1,13 +1,13 @@
-import { ChartAccount } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/ChartAccount";
-import BaseAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/BaseAccount";
+import ChartAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccount";
+import { ChartAccountType } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
 
-export default abstract class BaseInMemoryAccount<T extends ChartAccount> implements BaseAccount {
-    public parentAccount?: BaseInMemoryAccount<T>;
+export default abstract class BaseInMemoryAccount implements ChartAccount {
+    public parentAccount?: BaseInMemoryAccount;
 
     constructor(
         public readonly accountCode: string,
         public readonly accountTitle: string,
-        public readonly childAccounts: BaseInMemoryAccount<T>[] = []
+        public readonly childAccounts: BaseInMemoryAccount[] = []
     ) {
         childAccounts.forEach(acc => acc.parentAccount = this);
     }
@@ -27,4 +27,6 @@ export default abstract class BaseInMemoryAccount<T extends ChartAccount> implem
     getChildAccounts() {
         return this.childAccounts;
     }
+
+    abstract getAccountType(): ChartAccountType;
 }
