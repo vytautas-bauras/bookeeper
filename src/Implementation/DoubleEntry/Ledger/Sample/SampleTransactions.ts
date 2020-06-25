@@ -7,7 +7,6 @@ const accountsChart = SampleChartOfAccounts;
 
 const assetsAccount = accountsChart.getRootAccountByType(ChartAccountType.Assets);
 const equityAccount = accountsChart.getRootAccountByType(ChartAccountType.Equity);
-const expensesAccount = accountsChart.getRootAccountByType(ChartAccountType.Expenses);
 
 export default function() {
     return [
