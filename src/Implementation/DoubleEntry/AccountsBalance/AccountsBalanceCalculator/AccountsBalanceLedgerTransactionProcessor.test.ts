@@ -1,8 +1,6 @@
 import tap from 'tap';
 import { TemporaryAccountBalanceMap } from './TemporaryAccountsBalanceMapInitializer';
 import AccountsBalanceLedgerTransactionProcessor from './AccountsBalanceLedgerTransactionProcessor';
-import InMemoryLedgerTransaction from '../../Ledger/InMemory/InMemoryLedgerTransaction';
-import InMemoryLedgerEntry from '../../Ledger/InMemory/InMemoryLedgerEntry';
 import SampleChartOfAccounts from '../../AccountsChart/Sample/SampleChartOfAccounts';
 import { ChartAccountType } from '../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType';
 import SampleTransactions from '../../Ledger/Sample/SampleTransactions';
