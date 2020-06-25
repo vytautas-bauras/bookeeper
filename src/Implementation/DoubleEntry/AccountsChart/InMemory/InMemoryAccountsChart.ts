@@ -1,11 +1,12 @@
-import AccountsChart from "Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountsChart";
 import InMemoryLiabilitiesAccount from "./InMemoryLiabilitiesAccount";
 import InMemoryEquityAccount from "./InMemoryEquityAccount";
 import InMemoryRevenuesAccount from "./InMemoryRevenuesAccount";
 import InMemoryExpensesAccount from "./InMemoryExpensesAccount";
 import InMemoryAssetsAccount from "./InMemoryAssetsAccount";
-import { ChartAccountType } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
-import BaseInMemoryAccount from "./BaseInMemoryAccount";
+import NoRootAccountOfSuchTypeInMemoryError from "./NoRootAccountOfSuchTypeInMemoryError";
+import AccountsChart from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountsChart";
+import ChartAccount from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccount";
+import { ChartAccountType } from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
 
 export default class InMemoryAccountsChart implements AccountsChart {
     constructor(
@@ -18,17 +19,25 @@ export default class InMemoryAccountsChart implements AccountsChart {
 
     }
 
-    getRootAccountByType(accountType: ChartAccountType) {
+    getRootAccountByType(accountType: ChartAccountType): ChartAccount {
+        let account: ChartAccount|undefined;
+
         if(accountType === ChartAccountType.Assets) {
-            return this.assets;
+            account = this.assets;
         } else if(accountType === ChartAccountType.Equity) {
-            return this.equity;
+            account = this.equity;
         } else if(accountType === ChartAccountType.Liabilities) {
-            return this.liabilities;
+            account = this.liabilities;
         } else if(accountType === ChartAccountType.Revenues) {
-            return this.revenues;
+            account = this.revenues;
         } else if(accountType === ChartAccountType.Expenses) {
-            return this.expenses;
+            account = this.expenses;
         }
+
+        if(!account) {
+            throw new NoRootAccountOfSuchTypeInMemoryError(accountType);
+        }        
+
+        return account;
     }
 }

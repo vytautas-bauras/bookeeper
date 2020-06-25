@@ -1,4 +1,4 @@
-import { ChartAccount } from "../Account/ChartAccount";
+import ChartAccount from "../ChartAccount";
 
 export default interface MappedAccount {
     /**

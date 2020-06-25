@@ -1,16 +1,15 @@
 import TemporaryLedgerAccountBalance from "./TemporaryLedgerAccountBalance";
-import { ChartAccount } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/ChartAccount";
-import AccountBalance from "Contract/CoreConcepts/DoubleEntry/AccountsBalance/AccountBalance";
+import AccountBalance from "../../../../../Contract/CoreConcepts/DoubleEntry/AccountsBalance/AccountBalance";
 
-export default class CalculatedLedgerAccountBalance<T extends ChartAccount> implements AccountBalance<T> {
+export default class CalculatedLedgerAccountBalance implements AccountBalance {
     constructor(
-        protected temporaryBalance: TemporaryLedgerAccountBalance<T>, 
-        protected childAccountBalances: CalculatedLedgerAccountBalance<T>[]
+        protected temporaryBalance: TemporaryLedgerAccountBalance, 
+        protected childAccountBalances: CalculatedLedgerAccountBalance[]
     ) {
 
     }
 
-    getChartAccount(): T {
+    getChartAccount() {
         return this.temporaryBalance.account;
     }
 
@@ -26,7 +25,7 @@ export default class CalculatedLedgerAccountBalance<T extends ChartAccount> impl
         return this.temporaryBalance.debit;
     }
 
-    getChildAccountBalances(): CalculatedLedgerAccountBalance<T>[] {
+    getChildAccountBalances(): CalculatedLedgerAccountBalance[] {
         return this.childAccountBalances;
     }
 }

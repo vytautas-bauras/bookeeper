@@ -1,5 +1,5 @@
 import MappedAccountsChart from "../MappedAccountsChart";
-import Validator from "Contract/CoreConcepts/Validation/Validator";
+import Validator from "../../../../Validation/Validator";
 
 export default interface AccountsChartMapValidator extends Validator {
     /**

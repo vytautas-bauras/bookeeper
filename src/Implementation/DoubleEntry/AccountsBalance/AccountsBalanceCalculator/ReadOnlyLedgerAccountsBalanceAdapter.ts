@@ -1,31 +1,28 @@
 import CalculatedLedgerAccountBalance from "./AccountBalance/CalculatedLedgerAccountBalance";
-import { ChartAccount } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/ChartAccount";
-import AccountBalance from "Contract/CoreConcepts/DoubleEntry/AccountsBalance/AccountBalance";
-import AssetsAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/AssetsAccount";
-import EquityAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/EquityAccount";
-import RevenuesAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/RevenuesAccount";
-import LiabilitiesAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/LiabilitiesAccount";
-import ExpensesAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/ExpensesAccount";
-import AccountsChart from "Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountsChart";
 import { TemporaryAccountBalanceMap } from "./TemporaryAccountsBalanceMapInitializer";
-import AccountsBalance from "Contract/CoreConcepts/DoubleEntry/AccountsBalance/AccountsBalance";
+import { ChartAccountType } from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
+import AccountsBalance from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsBalance/AccountsBalance";
+import AccountsChart from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountsChart";
+import ChartAccount from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccount";
+
+type rootAccountBalances = {
+    [key in ChartAccountType]: CalculatedLedgerAccountBalance
+};
 
 export default class ReadOnlyLedgerAccountsBalanceAdapter implements AccountsBalance {
-    private assets: AccountBalance<AssetsAccount>;
-    private equity: AccountBalance<EquityAccount>;
-    private revenues: AccountBalance<RevenuesAccount>;
-    private liabilities: AccountBalance<LiabilitiesAccount>;
-    private expenses: AccountBalance<ExpensesAccount>;
+    private rootAccountBalances: rootAccountBalances;
 
     constructor(
         private accountsChart: AccountsChart,
         private accountBalanceMap: TemporaryAccountBalanceMap
     ) {
-        this.assets = this.initLedgerAccountBalanceRecursive(this.accountsChart.getAssets());     
-        this.equity = this.initLedgerAccountBalanceRecursive(this.accountsChart.getEquity());
-        this.revenues = this.initLedgerAccountBalanceRecursive(this.accountsChart.getRevenues());
-        this.liabilities = this.initLedgerAccountBalanceRecursive(this.accountsChart.getLiabilities());
-        this.expenses = this.initLedgerAccountBalanceRecursive(this.accountsChart.getExpenses());
+        this.rootAccountBalances = {
+            [ChartAccountType.Assets]: this.initLedgerAccountBalanceRecursive(accountsChart.getRootAccountByType(ChartAccountType.Assets)),
+            [ChartAccountType.Equity]: this.initLedgerAccountBalanceRecursive(accountsChart.getRootAccountByType(ChartAccountType.Equity)),
+            [ChartAccountType.Liabilities]: this.initLedgerAccountBalanceRecursive(accountsChart.getRootAccountByType(ChartAccountType.Liabilities)),
+            [ChartAccountType.Revenues]: this.initLedgerAccountBalanceRecursive(accountsChart.getRootAccountByType(ChartAccountType.Revenues)),
+            [ChartAccountType.Expenses]: this.initLedgerAccountBalanceRecursive(accountsChart.getRootAccountByType(ChartAccountType.Expenses)),
+        }
     }
 
     /**
@@ -33,7 +30,7 @@ export default class ReadOnlyLedgerAccountsBalanceAdapter implements AccountsBal
      * 
      * @param account 
      */
-    initLedgerAccountBalanceRecursive(account: ChartAccount): CalculatedLedgerAccountBalance<any> {
+    private initLedgerAccountBalanceRecursive(account: ChartAccount): CalculatedLedgerAccountBalance {
         const balance = this.accountBalanceMap[account.getAccountCode()];
 
         return new CalculatedLedgerAccountBalance(
@@ -44,23 +41,7 @@ export default class ReadOnlyLedgerAccountsBalanceAdapter implements AccountsBal
         );
     }
 
-    getAssets() {
-        return this.assets;
-    }
-
-    getEquity() {
-        return this.equity;
-    }
-
-    getRevenues() {
-        return this.revenues;
-    }
-
-    getExpenses() {
-        return this.expenses;
-    }
-
-    getLiabilities() {
-        return this.liabilities;
+    getRootBalanceByAccountType(accountType: ChartAccountType) {
+        return this.rootAccountBalances[accountType];
     }
 }

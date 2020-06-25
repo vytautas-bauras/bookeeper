@@ -1,8 +1,8 @@
-import { ChartAccount } from "../AccountsChart/Account/ChartAccount";
+import ChartAccount from "../AccountsChart/ChartAccount";
 
-export default interface AccountBalance<T extends ChartAccount> {
+export default interface AccountBalance {
     getChartAccount(): ChartAccount;
-    getChildAccountBalances(): AccountBalance<T>[];
+    getChildAccountBalances(): AccountBalance[];
     getBalance(): number;
     getDebit(): number;
     getCredit(): number;

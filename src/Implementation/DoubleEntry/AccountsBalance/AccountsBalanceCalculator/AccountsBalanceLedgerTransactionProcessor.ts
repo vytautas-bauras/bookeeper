@@ -1,6 +1,6 @@
 import { TemporaryAccountBalanceMap } from "./TemporaryAccountsBalanceMapInitializer";
-import LedgerTransaction from "Contract/CoreConcepts/DoubleEntry/Ledger/LedgerTransaction";
 import AccountNotInChartError from "./AccountNotInChartError";
+import LedgerTransaction from "../../../../Contract/CoreConcepts/DoubleEntry/Ledger/LedgerTransaction";
 
 export default class AccountsBalanceLedgerTransactionProcessor {
     constructor(
@@ -26,11 +26,6 @@ export default class AccountsBalanceLedgerTransactionProcessor {
 
                 const amount = entry.getLedgerEntryAmount();
                 accountBalance.balance += amount;
-
-                if(amount > 0) 
-                    accountBalance.credit = amount; 
-                else 
-                    accountBalance.debit = amount;
             }
         }
     }

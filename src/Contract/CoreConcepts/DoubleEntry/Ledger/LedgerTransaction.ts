@@ -1,5 +1,5 @@
 import LedgerEntry from "./LedgerEntry";
-import Validatable from "Contract/CoreConcepts/Validation/Validatable";
+import Validatable from "../../Validation/Validatable";
 
 export default interface LedgerTransaction extends Validatable {
     getTransactionDate(): Date;

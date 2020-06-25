@@ -1,5 +1,5 @@
 import { ChartAccountType } from "./ChartAccountType";
-import Validatable from "Contract/CoreConcepts/Validation/Validatable";
+import Validatable from "../../Validation/Validatable";
 
 export default interface ChartAccount extends Validatable {
     getAccountCode(): string;

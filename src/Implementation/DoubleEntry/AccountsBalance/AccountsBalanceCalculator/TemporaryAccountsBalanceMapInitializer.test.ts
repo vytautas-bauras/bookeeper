@@ -1,8 +1,9 @@
 import tap from 'tap';
 import TemporaryLedgerAccountBalance from './AccountBalance/TemporaryLedgerAccountBalance';
 import TemporaryAccountsBalanceMapInitializer from './TemporaryAccountsBalanceMapInitializer';
-import ChartAccountListProvider, { ChartAccountList } from 'Contract/SystemComponents/DoubleEntry/AccountsChart/ChartAccountListProvider';
-import { ChartAccount } from 'Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/ChartAccount';
+import { ChartAccountType } from '../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType';
+import ChartAccountListProvider, { ChartAccountList } from '../../../../Contract/SystemComponents/DoubleEntry/AccountsChart/ChartAccountListProvider';
+import ChartAccount from '../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccount';
 
 const childAccounts = [
     {
@@ -17,6 +18,9 @@ const childAccounts = [
         },
         getParentAccount() {
             return accountList["100"];
+        },
+        getAccountType() {
+            return ChartAccountType.Assets;
         }
     },
     {
@@ -31,6 +35,9 @@ const childAccounts = [
         },
         getParentAccount() {
             return accountList["100"];
+        },
+        getAccountType() {
+            return ChartAccountType.Assets;
         }
     }
 ];
@@ -47,6 +54,9 @@ const assetsAccount = {
     },
     getParentAccount() {
         return undefined;
+    },
+    getAccountType() {
+        return ChartAccountType.Assets;
     }
 };
 
@@ -56,7 +66,7 @@ const accountList: ChartAccountList = {
     "120": childAccounts[1]
 };
 
-function validateTemporaryAccountBalance(balance: TemporaryLedgerAccountBalance<any>, expectedAccount: ChartAccount) {
+function validateTemporaryAccountBalance(balance: TemporaryLedgerAccountBalance, expectedAccount: ChartAccount) {
     tap.equals(balance.account, expectedAccount);
     tap.equals(balance.balance, 0);
     tap.equals(balance.credit, 0);

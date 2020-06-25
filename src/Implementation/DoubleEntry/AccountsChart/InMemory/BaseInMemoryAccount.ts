@@ -1,5 +1,5 @@
-import ChartAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccount";
-import { ChartAccountType } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
+import ChartAccount from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccount";
+import { ChartAccountType } from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
 
 export default abstract class BaseInMemoryAccount implements ChartAccount {
     public parentAccount?: BaseInMemoryAccount;

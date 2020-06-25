@@ -1,5 +1,5 @@
-import LedgerTransaction from "Contract/CoreConcepts/DoubleEntry/Ledger/LedgerTransaction";
-import LedgerEntry from "Contract/CoreConcepts/DoubleEntry/Ledger/LedgerEntry";
+import LedgerTransaction from "../../../../Contract/CoreConcepts/DoubleEntry/Ledger/LedgerTransaction";
+import LedgerEntry from "../../../../Contract/CoreConcepts/DoubleEntry/Ledger/LedgerEntry";
 
 export default class InMemoryLedgerTransaction implements LedgerTransaction {
     constructor(

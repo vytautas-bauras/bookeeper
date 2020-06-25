@@ -1,8 +1,8 @@
 import TemporaryAccountsBalanceMapInitializer from "./TemporaryAccountsBalanceMapInitializer";
-import SearchableAccountsChart from "Contract/SystemComponents/DoubleEntry/AccountsChart/SearchableAccountsChart";
-import LedgerTransaction from "Contract/CoreConcepts/DoubleEntry/Ledger/LedgerTransaction";
 import AccountsBalanceLedgerTransactionProcessor from "./AccountsBalanceLedgerTransactionProcessor";
 import ReadOnlyLedgerAccountsBalanceAdapter from "./ReadOnlyLedgerAccountsBalanceAdapter";
+import SearchableAccountsChart from "../../../../Contract/SystemComponents/DoubleEntry/AccountsChart/SearchableAccountsChart";
+import LedgerTransaction from "../../../../Contract/CoreConcepts/DoubleEntry/Ledger/LedgerTransaction";
 
 export default class AccountsBalanceCalculator {
     private scratchFactory: TemporaryAccountsBalanceMapInitializer;

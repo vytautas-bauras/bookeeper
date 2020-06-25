@@ -1,5 +1,5 @@
-import Validatable from "Contract/CoreConcepts/Validation/Validatable";
 import LedgerTransaction from "../LedgerTransaction";
+import Validatable from "../../../Validation/Validatable";
 
 export default interface LedgerTransactionValidator extends Validatable {
     /**

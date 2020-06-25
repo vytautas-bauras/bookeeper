@@ -1,5 +1,5 @@
-import Validator from "Contract/CoreConcepts/Validation/Validator";
 import AccountsBalance from "../AccountsBalance";
+import Validator from "../../../Validation/Validator";
 
 export default interface AccountsBalanceEquationValidator extends Validator {
     /**

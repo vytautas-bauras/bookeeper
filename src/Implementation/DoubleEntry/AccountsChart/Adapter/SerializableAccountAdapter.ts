@@ -1,6 +1,6 @@
 import SerializableAccount from "../Serializable/SerializableAccount";
-import ChartAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccount";
-import { ChartAccountType } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
+import ChartAccount from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccount";
+import { ChartAccountType } from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
 
 export default class SerializableAccountAdapter implements ChartAccount {
     constructor(

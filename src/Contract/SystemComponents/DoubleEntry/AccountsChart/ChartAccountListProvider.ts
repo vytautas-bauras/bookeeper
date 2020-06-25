@@ -1,4 +1,4 @@
-import { ChartAccount } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/ChartAccount";
+import ChartAccount from "../../../CoreConcepts/DoubleEntry/AccountsChart/ChartAccount";
 
 export type ChartAccountList = {[accountCode: string]: ChartAccount};
 

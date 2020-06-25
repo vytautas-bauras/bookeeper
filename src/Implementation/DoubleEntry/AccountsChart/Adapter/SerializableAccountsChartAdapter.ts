@@ -1,7 +1,7 @@
-import AccountsChart from "Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountsChart";
 import SerializableAccountAdapter from "./SerializableAccountAdapter";
-import { ChartAccountType } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
 import { SerializableAccountsChart } from "../Serializable/SerializableAccountsChart";
+import AccountsChart from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountsChart";
+import { ChartAccountType } from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
 
 export default class SerializableAccountsChartAdapter implements AccountsChart {
     constructor(protected serializedAccountsChart: SerializableAccountsChart) {

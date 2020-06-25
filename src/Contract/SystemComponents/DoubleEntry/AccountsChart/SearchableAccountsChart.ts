@@ -1,6 +1,6 @@
-import { ChartAccount } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/Account/ChartAccount";
-import AccountsChart from "Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountsChart";
 import ChartAccountListProvider from "./ChartAccountListProvider";
+import AccountsChart from "../../../CoreConcepts/DoubleEntry/AccountsChart/AccountsChart";
+import ChartAccount from "../../../CoreConcepts/DoubleEntry/AccountsChart/ChartAccount";
 
 export default interface SearchableAccountsChart extends AccountsChart, ChartAccountListProvider {
     getAccountByName(accountCode: string): ChartAccount;

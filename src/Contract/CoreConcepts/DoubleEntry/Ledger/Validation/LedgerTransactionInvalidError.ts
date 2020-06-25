@@ -1,4 +1,4 @@
-import TargetInvalidError from "Contract/CoreConcepts/Validation/TargetInvalidError";
+import TargetInvalidError from "../../../Validation/TargetInvalidError";
 
 export default interface LedgerTransactionInvalidError extends TargetInvalidError {
     

@@ -1,9 +1,9 @@
-import SearchableAccountsChart from "Contract/SystemComponents/DoubleEntry/AccountsChart/SearchableAccountsChart";
-import AccountsChart from "Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountsChart";
 import AccountNotFoundError from "./AccountNotFoundError";
-import { ChartAccountList } from "Contract/SystemComponents/DoubleEntry/AccountsChart/ChartAccountListProvider";
-import { ChartAccountType } from "Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
-import ChartAccount from "Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccount";
+import SearchableAccountsChart from "../../../../Contract/SystemComponents/DoubleEntry/AccountsChart/SearchableAccountsChart";
+import { ChartAccountList } from "../../../../Contract/SystemComponents/DoubleEntry/AccountsChart/ChartAccountListProvider";
+import { ChartAccountType } from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
+import AccountsChart from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountsChart";
+import ChartAccount from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccount";
 
 export default class SearchableAccountsChartAdapter implements SearchableAccountsChart {
     private accountsMap: ChartAccountList = {};
