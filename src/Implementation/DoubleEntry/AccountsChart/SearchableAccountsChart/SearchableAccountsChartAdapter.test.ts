@@ -5,5 +5,5 @@ import chartOfAccounts from "../Sample/SampleChartOfAccounts";
 import { ChartAccountType } from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
 
 const searchableAccountsChartAdapter = new SearchableAccountsChartAdapter(chartOfAccounts);
-tap.equals(searchableAccountsChartAdapter.getAccountByName("400"), chartOfAccounts.getRootAccountByType(ChartAccountType.Revenues));
+tap.equals(searchableAccountsChartAdapter.getAccountByCode("400"), chartOfAccounts.getRootAccountByType(ChartAccountType.Revenues));
 

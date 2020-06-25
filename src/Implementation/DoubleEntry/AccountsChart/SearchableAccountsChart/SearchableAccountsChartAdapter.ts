@@ -25,7 +25,7 @@ export default class SearchableAccountsChartAdapter implements SearchableAccount
         return this.accountsChart.getRootAccountByType(accountType);
     }
  
-    getAccountByName(accountCode: string) {
+    getAccountByCode(accountCode: string) {
         const account = this.accountsMap[accountCode];
         if(!account) {
             throw new AccountNotFoundError();

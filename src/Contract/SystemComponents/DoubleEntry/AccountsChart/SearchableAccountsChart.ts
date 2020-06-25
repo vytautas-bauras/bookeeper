@@ -3,5 +3,5 @@ import AccountsChart from "../../../CoreConcepts/DoubleEntry/AccountsChart/Accou
 import ChartAccount from "../../../CoreConcepts/DoubleEntry/AccountsChart/ChartAccount";
 
 export default interface SearchableAccountsChart extends AccountsChart, ChartAccountListProvider {
-    getAccountByName(accountCode: string): ChartAccount;
+    getAccountByCode(accountCode: string): ChartAccount;
 }
