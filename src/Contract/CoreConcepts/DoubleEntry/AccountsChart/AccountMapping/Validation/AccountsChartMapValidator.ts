@@ -1,4 +1,4 @@
-import MappedAccountsChart from "../ChartAccountMappings";
+import ChartAccountMappings from "../ChartAccountMappings";
 import Validator from "../../../../Validation/Validator";
 
 export default interface AccountsChartMapValidator extends Validator {
@@ -6,5 +6,5 @@ export default interface AccountsChartMapValidator extends Validator {
      * @throws ChartHasUnmappedAccountsError
      * @param target 
      */
-    validate(target: MappedAccountsChart): void;
+    validate(target: ChartAccountMappings): void;
 }
