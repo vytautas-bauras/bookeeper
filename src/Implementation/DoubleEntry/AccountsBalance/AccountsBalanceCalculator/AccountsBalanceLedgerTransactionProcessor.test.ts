@@ -5,6 +5,7 @@ import InMemoryLedgerTransaction from '../../Ledger/InMemory/InMemoryLedgerTrans
 import InMemoryLedgerEntry from '../../Ledger/InMemory/InMemoryLedgerEntry';
 import SampleChartOfAccounts from '../../AccountsChart/Sample/SampleChartOfAccounts';
 import { ChartAccountType } from '../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType';
+import SampleTransactions from '../../Ledger/Sample/SampleTransactions';
 
 const accountsChart = SampleChartOfAccounts;
 
@@ -34,24 +35,7 @@ const scratch: TemporaryAccountBalanceMap = {
 };
 
 const processor = new AccountsBalanceLedgerTransactionProcessor(scratch);
-processor.processTransactions([
-    new InMemoryLedgerTransaction(
-        new Date(),
-        'Bought a PC for cash',
-        [
-            new InMemoryLedgerEntry(assetsAccount, 1000),
-            new InMemoryLedgerEntry(assetsAccount, -1000),
-        ]
-    ),
-    new InMemoryLedgerTransaction(
-        new Date(),
-        'Issued Shares',
-        [
-            new InMemoryLedgerEntry(assetsAccount, 500),
-            new InMemoryLedgerEntry(equityAccount, -500)
-        ]
-    )
-]);
+processor.processTransactions(SampleTransactions());
 
 tap.equals(scratch[assetsAccount.getAccountCode()].balance, 500);
 tap.equals(scratch[equityAccount.getAccountCode()].balance, -500);
