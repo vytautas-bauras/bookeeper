@@ -24,8 +24,7 @@ export default class AccountsBalanceLedgerTransactionProcessor {
                 const accountBalance = this.temporaryBalanceMap[entry.getLedgerEntryAccount().getAccountCode()];
                 if(!accountBalance) throw new AccountNotInChartError();
 
-                const amount = entry.getLedgerEntryAmount();
-                accountBalance.balance += amount;
+                accountBalance.balance += entry.getLedgerEntryAmount();
             }
         }
     }
