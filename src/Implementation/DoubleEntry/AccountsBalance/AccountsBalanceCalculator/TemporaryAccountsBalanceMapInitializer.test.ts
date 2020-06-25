@@ -2,7 +2,7 @@ import tap from 'tap';
 import TemporaryLedgerAccountBalance from './AccountBalance/TemporaryLedgerAccountBalance';
 import TemporaryAccountsBalanceMapInitializer from './TemporaryAccountsBalanceMapInitializer';
 import { ChartAccountType } from '../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType';
-import ChartAccountListProvider, { ChartAccountList } from '../../../../Contract/SystemComponents/DoubleEntry/AccountsChart/ChartAccountListProvider';
+import { ChartAccountList } from '../../../../Contract/SystemComponents/DoubleEntry/AccountsChart/ChartAccountListProvider';
 import ChartAccount from '../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccount';
 
 const childAccounts = [
@@ -77,7 +77,7 @@ const initializer = new TemporaryAccountsBalanceMapInitializer({
     getAccountList() {
         return accountList
     }
-} as ChartAccountListProvider);
+});
 
 const map = initializer.initializeTemporaryAccountsBalanceMap();
 validateTemporaryAccountBalance(map["100"], assetsAccount);
