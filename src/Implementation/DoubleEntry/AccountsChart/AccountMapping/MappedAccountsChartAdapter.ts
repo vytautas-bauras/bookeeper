@@ -1,45 +1,45 @@
-import AccountsChart from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountsChart";
-import MappedChartAccountAdapter from "./MappedChartAccountAdapter";
-import MappedAccountsChart from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountMapping/MappedAccountsChart";
-import { ChartAccountType } from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
-import SearchableAccountsChart from "../../../../Contract/SystemComponents/DoubleEntry/AccountsChart/SearchableAccountsChart";
+import ChartAccountMappings from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountMapping/ChartAccountMappings";
 import { SerializableMappedAccountsChart } from "./SerializableMappedAccountsChart";
+import SerializableMappedChartAccount from "./SerializableMappedChartAccount";
+import { ChartAccountType } from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
+import AccountsChart from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountsChart";
+import SerializableAccountsChartAdapter from "../Adapter/SerializableAccountsChartAdapter";
 
-export default class MappedAccountsChartAdapter implements MappedAccountsChart {
+export default class MappedAccountsChartAdapter implements ChartAccountMappings {
     private mappedAccountMap: {
-        [key in ChartAccountType]: MappedChartAccountAdapter
-    };
+        [accountCode: string]: string
+    } = {};
+
+    private targetAccountsChart: SerializableAccountsChartAdapter;
 
     constructor(
-        private baseAccountsChart: SearchableAccountsChart,
-        private targetAccountsChart: SerializableMappedAccountsChart
+        serializedTargetAccountsChart: SerializableMappedAccountsChart,
+        private baseAccountsChart: AccountsChart
     ) {
-        this.mappedAccountMap = {
-            [ChartAccountType.Assets]: this.createAdapter(ChartAccountType.Assets),
-            [ChartAccountType.Equity]: this.createAdapter(ChartAccountType.Liabilities),
-            [ChartAccountType.Expenses]: this.createAdapter(ChartAccountType.Equity),
-            [ChartAccountType.Liabilities]: this.createAdapter(ChartAccountType.Expenses),
-            [ChartAccountType.Revenues]: this.createAdapter(ChartAccountType.Revenues)
-        };
+        this.initMapRecursive(serializedTargetAccountsChart[ChartAccountType.Assets]);
+        this.initMapRecursive(serializedTargetAccountsChart[ChartAccountType.Liabilities]);
+        this.initMapRecursive(serializedTargetAccountsChart[ChartAccountType.Equity]);
+        this.initMapRecursive(serializedTargetAccountsChart[ChartAccountType.Revenues]);
+        this.initMapRecursive(serializedTargetAccountsChart[ChartAccountType.Expenses]);
+
+        this.targetAccountsChart = new SerializableAccountsChartAdapter(serializedTargetAccountsChart);
     }
 
-    private createAdapter(accountType: ChartAccountType) {
-        return new MappedChartAccountAdapter(
-            this.baseAccountsChart,
-            accountType,
-            this.targetAccountsChart[accountType]
-        );
+    private initMapRecursive(account: SerializableMappedChartAccount) {
+        account.mappedAccountCodes.forEach(code => {
+            this.mappedAccountMap[code] = account.accountCode;
+        });
     }
 
-    getBaseAccountsChart() {
-        return this.baseAccountsChart;
+    getCorrespondingTargetAccountCode(baseAccountCode: string) {
+        return this.mappedAccountMap[baseAccountCode];
     }
 
     getTargetAccountsChart() {
         return this.targetAccountsChart;
     }
 
-    getRootAccountByType(accountType: ChartAccountType) {
-        return this.mappedAccountMap[accountType];
+    getBaseAccountsChart() {
+        return this.baseAccountsChart;
     }
 }

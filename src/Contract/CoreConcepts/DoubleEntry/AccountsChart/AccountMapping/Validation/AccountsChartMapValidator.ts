@@ -1,4 +1,4 @@
-import MappedAccountsChart from "../MappedAccountsChart";
+import MappedAccountsChart from "../ChartAccountMappings";
 import Validator from "../../../../Validation/Validator";
 
 export default interface AccountsChartMapValidator extends Validator {

@@ -13,7 +13,7 @@ export default class ReadOnlyLedgerAccountsBalanceAdapter implements AccountsBal
     private rootAccountBalances: rootAccountBalances;
 
     constructor(
-        private accountsChart: AccountsChart,
+        public readonly accountsChart: AccountsChart,
         private accountBalanceMap: TemporaryAccountBalanceMap
     ) {
         this.rootAccountBalances = {
