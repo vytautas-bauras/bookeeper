@@ -1,12 +1,12 @@
-import CalculatedLedgerAccountBalance from "./AccountBalance/CalculatedLedgerAccountBalance";
 import { TemporaryAccountBalanceMap } from "./TemporaryAccountsBalanceMapInitializer";
 import { ChartAccountType } from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
 import AccountsBalance from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsBalance/AccountsBalance";
 import AccountsChart from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/AccountsChart";
 import ChartAccount from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccount";
+import InMemoryAccountBalance from "../InMemory/InMemoryAccountBalance";
 
 type rootAccountBalances = {
-    [key in ChartAccountType]: CalculatedLedgerAccountBalance
+    [key in ChartAccountType]: InMemoryAccountBalance
 };
 
 export default class ReadOnlyLedgerAccountsBalanceAdapter implements AccountsBalance {
@@ -30,11 +30,14 @@ export default class ReadOnlyLedgerAccountsBalanceAdapter implements AccountsBal
      * 
      * @param account 
      */
-    private initLedgerAccountBalanceRecursive(account: ChartAccount): CalculatedLedgerAccountBalance {
+    private initLedgerAccountBalanceRecursive(account: ChartAccount): InMemoryAccountBalance {
         const balance = this.accountBalanceMap[account.getAccountCode()];
 
-        return new CalculatedLedgerAccountBalance(
-            balance, 
+        return new InMemoryAccountBalance(
+            balance.account,
+            balance.debit,
+            balance.credit,
+            balance.balance,
             account.getChildAccounts().map(childAccount => {
                 return this.initLedgerAccountBalanceRecursive(childAccount)
             })
