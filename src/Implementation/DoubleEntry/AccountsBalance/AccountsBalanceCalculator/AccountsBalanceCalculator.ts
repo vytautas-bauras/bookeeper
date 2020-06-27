@@ -1,16 +1,13 @@
 import TemporaryAccountsBalanceMapInitializer from "./TemporaryAccountsBalanceMapInitializer";
 import AccountsBalanceLedgerTransactionProcessor from "./AccountsBalanceLedgerTransactionProcessor";
-import ReadOnlyLedgerAccountsBalanceAdapter from "./ReadOnlyLedgerAccountsBalanceAdapter";
-import SearchableAccountsChart from "../../../../Contract/SystemComponents/DoubleEntry/AccountsChart/SearchableAccountsChart";
 import LedgerTransaction from "../../../../Contract/CoreConcepts/DoubleEntry/Ledger/LedgerTransaction";
+import ReadOnlyAccountsBalanceFactory from "./ReadOnlyAccountsBalanceFactory";
 
 export default class AccountsBalanceCalculator {
-    private scratchFactory: TemporaryAccountsBalanceMapInitializer;
-
     constructor(
-        private searchableAccountsChart: SearchableAccountsChart
+        private scratchFactory: TemporaryAccountsBalanceMapInitializer,
+        private readOnlyFactory: ReadOnlyAccountsBalanceFactory
     ) {
-        this.scratchFactory = new TemporaryAccountsBalanceMapInitializer(searchableAccountsChart);
     }
 
     /**
@@ -23,6 +20,6 @@ export default class AccountsBalanceCalculator {
         const processor = new AccountsBalanceLedgerTransactionProcessor(scratch);
         processor.processTransactions(transactions);
         
-        return new ReadOnlyLedgerAccountsBalanceAdapter(this.searchableAccountsChart, scratch);
+        return this.readOnlyFactory.createFromTemporary(scratch);
     }
 }
