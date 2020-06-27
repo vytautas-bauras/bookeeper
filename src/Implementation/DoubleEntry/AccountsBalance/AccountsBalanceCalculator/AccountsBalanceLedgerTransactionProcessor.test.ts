@@ -5,7 +5,7 @@ import SampleChartOfAccounts from '../../AccountsChart/Sample/SampleChartOfAccou
 import { ChartAccountType } from '../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType';
 import SampleTransactions from '../../Ledger/Sample/SampleTransactions';
 
-const accountsChart = SampleChartOfAccounts;
+const accountsChart = SampleChartOfAccounts();
 
 const assetsAccount = accountsChart.getRootAccountByType(ChartAccountType.Assets);
 const equityAccount = accountsChart.getRootAccountByType(ChartAccountType.Equity);

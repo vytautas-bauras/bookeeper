@@ -5,7 +5,7 @@ import AccountsBalanceCalculator from "./AccountsBalanceCalculator";
 import SampleTransactions from "../../Ledger/Sample/SampleTransactions";
 import { ChartAccountType } from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
 
-const searchableAccountsChart = new SearchableAccountsChartAdapter(SampleChartOfAccounts);
+const searchableAccountsChart = new SearchableAccountsChartAdapter(SampleChartOfAccounts());
 const calculator = new AccountsBalanceCalculator(searchableAccountsChart);
 
 const balance = calculator.calculateAccountsBalance(SampleTransactions());

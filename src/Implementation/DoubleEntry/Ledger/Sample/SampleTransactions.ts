@@ -3,7 +3,7 @@ import InMemoryLedgerEntry from "../InMemory/InMemoryLedgerEntry";
 import SampleChartOfAccounts from "../../AccountsChart/Sample/SampleChartOfAccounts";
 import { ChartAccountType } from "../../../../Contract/CoreConcepts/DoubleEntry/AccountsChart/ChartAccountType";
 
-const accountsChart = SampleChartOfAccounts;
+const accountsChart = SampleChartOfAccounts();
 
 const assetsAccount = accountsChart.getRootAccountByType(ChartAccountType.Assets);
 const equityAccount = accountsChart.getRootAccountByType(ChartAccountType.Equity);
