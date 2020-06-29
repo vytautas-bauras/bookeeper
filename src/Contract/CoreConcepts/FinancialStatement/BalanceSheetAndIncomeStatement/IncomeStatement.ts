@@ -1,5 +1,6 @@
-import LineMappedFinancialStatement from "../LineMapped/LineMappedFinancialStatement";
+import LineMappedFinancialStatement from "../Design/LineMapped/LineMappedFinancialStatementDesign";
+import FinancialStatement from "../FinancialStatement";
 
-export default interface IncomeStatement extends LineMappedFinancialStatement {
-    
+export default interface IncomeStatement extends FinancialStatement {
+
 }

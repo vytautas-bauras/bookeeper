@@ -1,5 +1,6 @@
 import FinancialStatement from "../../CoreConcepts/FinancialStatement/FinancialStatement";
+import FinancialStatementQuery from "./FinancialStatementQuery";
 
 export default interface FinancialStatementProvider {
-    getFinancialStatement(): FinancialStatement;
+    getFinancialStatement(query: FinancialStatementQuery): FinancialStatement;
 }

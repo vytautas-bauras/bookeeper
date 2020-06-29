@@ -1,5 +1,5 @@
-import LineMappedFinancialStatement from "../LineMapped/LineMappedFinancialStatement";
+import FinancialStatement from "../FinancialStatement";
 
-export default interface BalanceSheet extends LineMappedFinancialStatement {
+export default interface BalanceSheet extends FinancialStatement {
 
 }
