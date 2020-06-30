@@ -1,8 +1,8 @@
-import AccountsBalanceAggregator from "../../../../Contract/SystemComponents/DoubleEntry/AccountsBalance/Aggregator/AccountsBalanceAggregator";
-import InMemoryFinancialStatement from "../../InMemory/InMemoryFinancialStatement";
-import InMemoryFinancialStatementLine from "../../InMemory/InMemoryFinancialStatementLine";
-import LineMappedFinancialStatementDesign from "../../../../Contract/CoreConcepts/FinancialStatement/Design/LineMapped/LineMappedFinancialStatementDesign";
-import MappedFinancialStatementLine from "../../../../Contract/CoreConcepts/FinancialStatement/Design/LineMapped/MappedFinancialStatementLine";
+import AccountsBalanceAggregator from "../../../../../Contract/SystemComponents/DoubleEntry/AccountsBalance/Aggregator/AccountsBalanceAggregator";
+import InMemoryFinancialStatement from "../../../InMemory/InMemoryFinancialStatement";
+import InMemoryFinancialStatementLine from "../../../InMemory/InMemoryFinancialStatementLine";
+import LineMappedFinancialStatementDesign from "../../../../../Contract/CoreConcepts/FinancialStatement/Design/LineMapped/LineMappedFinancialStatementDesign";
+import MappedFinancialStatementLine from "../../../../../Contract/CoreConcepts/FinancialStatement/Design/LineMapped/MappedFinancialStatementLineDesign";
 
 export default class AccountsBalanceToFinancialStatementAggregator {
     constructor(
